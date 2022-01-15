@@ -1,13 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Nav from './views/Nav';
 
 const  App = () => {
+  let name = 'Daokieu';
+  let number = 2021;
+  let obj = {
+      name: 'daokieu',
+      chanel: 'abcfd'
+  };
+  let link = '';
   return (
     <div className="App">
+      <Nav />
+
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <h1>Hello world width 88 </h1>
+          <h1>Hello world width 88 { name }in ! </h1>
         </p>
         <a
           className="App-link"
