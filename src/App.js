@@ -1,15 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
+import { useState } from 'react';
+
 
 const  App = () => {
-  let name = 'Daokieu';
-  let number = 2021;
-  let obj = {
-      name: 'daokieu',
-      chanel: 'abcfd'
-  };
-  let link = '';
+
+
+
+  // const name = 'daokieu';
+  let [name, setName] = useState('daokieu');
+  const [address, setAddress] = useState('');
+  const handleEventClick = (event) => {
+    setName(address)
+    console.log(">>>> click me", address)
+  }
+  const handleInput = (event) => {
+    setAddress(event.target.value)
+    console.log(event.target.value)
+  }
+
+  // re-render
   return (
     <div className="App">
       <Nav />
@@ -17,17 +28,10 @@ const  App = () => {
       
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <h1>Hello world width 88 { name }in ! </h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <h1>Hello world width 88 in { name } ! </h1>
+          <input type="text" value={ address } onChange = { (event) => handleInput(event) } ></input>
+        <button  type='button' onClick={ () => handleEventClick() }>Click me</button> 
+        
       </header>
     </div>
   );
