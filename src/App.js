@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './views/Nav';
 import { useState } from 'react';
 import Todo from './views/Todo';
+import Blog from './views/Blog';
 import YoutubeSearch from './views/YoutubeSearch';
 import {
   BrowserRouter as Router,
@@ -23,9 +24,6 @@ const  App = () => {//class
     { id:'todo2',title: 'Doing homework', type:'hoidanit' },
     { id:'todo3',title: 'playing game', type:'kaka' }
   ]);
-
-
-
 
   const handleEventClick = (event) => {
     if(!address) {
@@ -58,10 +56,6 @@ const  App = () => {//class
         
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          
-          
-         
-          
         </header>
         <Switch>
           <Route path="/home" exact ={true}>
@@ -79,6 +73,12 @@ const  App = () => {//class
           <input type="text" value={ address } onChange = { (event) => handleInput(event) } ></input>
           <button  type='button' onClick={ () => handleEventClick() }>Click me</button> 
           </Route>
+          <Router path ="/blog">
+            <Blog />
+          </Router>
+          <Router path ="/secret">
+              <YoutubeSearch />
+          </Router>
         </Switch>
       </div>
     </Router>
